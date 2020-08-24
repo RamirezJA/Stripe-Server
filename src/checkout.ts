@@ -7,6 +7,16 @@ import Stripe from 'stripe';
 export async function createStripeCheckoutSession(
   line_items: Stripe.Checkout.SessionCreateParams.LineItem[]
 ) {
+  // Example Item
+  // {
+  //   name: 'T-shirt',
+  //   description: 'Comfortable cotton t-shirt',
+  //   images: ['https://example.com/t-shirt.png'],
+  //   amount: 500,
+  //   currency: 'usd',
+  //   quantity: 1,
+  // }
+
   const url = process.env.WEBAPP_URL;
 
   const session = await stripe.checkout.sessions.create({
